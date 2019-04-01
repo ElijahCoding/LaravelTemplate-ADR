@@ -7,5 +7,5 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:api'], function () {
-
+    
 });

@@ -5,6 +5,7 @@ namespace Tests\Unit\Models\User;
 use App\User;
 use Tests\TestCase;
 use App\Models\Region;
+use App\Models\Profile;
 
 class UserTest extends TestCase
 {
@@ -15,7 +16,7 @@ class UserTest extends TestCase
         ]);
         $this->assertNotEquals($user->password, 'cats');
     }
-    
+
     public function test_a_user_has_many_or_belongs_to_many_regions()
     {
         $user = create(User::class);
@@ -25,5 +26,16 @@ class UserTest extends TestCase
         );
 
         $this->assertInstanceOf(Region::class, $user->regions->first());
+    }
+
+    public function test_a_user_has_a_profile()
+    {
+        $user = create(User::class);
+
+        $profile = create(Profile::class, [
+            'user_id' => $user->id
+        ]);
+
+        $this->assertInstanceOf(Profile::class, $user->profile);
     }
 }
