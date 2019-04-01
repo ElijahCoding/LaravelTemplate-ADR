@@ -11,6 +11,6 @@ class Region extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_farm');
+        return $this->belongsToMany(User::class, 'user_region');
     }
 }
