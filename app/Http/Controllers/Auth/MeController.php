@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class MeController extends Controller
 {
-    //
+    public function action()
+    {
+
+    }
 }
