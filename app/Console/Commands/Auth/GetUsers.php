@@ -19,6 +19,8 @@ class GetUsers extends Command
             json_decode(file_get_contents($file_path)), 2
         );
 
+        $bar = $this->output->createProgressBar(count($response[0]->data));
+        $bar->start();
 
         foreach ($response[0]->data as $index => $user) {
             User::create([
@@ -28,6 +30,11 @@ class GetUsers extends Command
                 'password' => $user->passwordHash,
                 'position' => $user->position
             ]);
+
+            $bar->advance();
         }
+
+        $bar->finish();
+        $this->output->write("\n");
     }
 }
