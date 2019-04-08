@@ -12,8 +12,9 @@ class UserTest extends TestCase
     public function test_it_hashes_the_password_when_creating()
     {
         $user = factory(User::class)->create([
-            'password' => 'cats'
+            'password' => bcrypt('cats')
         ]);
+
         $this->assertNotEquals($user->password, 'cats');
     }
 

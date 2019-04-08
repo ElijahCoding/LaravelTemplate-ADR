@@ -33,7 +33,7 @@ class LoginTest extends TestCase
     public function test_it_returns_a_token_if_credentials_do_match()
     {
         $user = factory(User::class)->create([
-            'password' => 'cats'
+            'password' => bcrypt('cats')
         ]);
 
         $this->json('POST', 'api/auth/login', [
@@ -50,7 +50,7 @@ class LoginTest extends TestCase
     public function test_it_returns_a_user_if_credentials_do_match()
     {
         $user = factory(User::class)->create([
-            'password' => 'cats'
+            'password' => bcrypt('cats')
         ]);
 
         $this->json('POST', 'api/auth/login', [
