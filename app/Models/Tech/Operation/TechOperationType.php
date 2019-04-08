@@ -3,8 +3,12 @@
 namespace App\Models\Tech\Operation;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tech\Operation\TechOperation;
 
 class TechOperationType extends Model
 {
-    protected $fillable = ['en', 'ru'];
+    public function operations()
+    {
+        return $this->hasMany(TechOperation::class);
+    }
 }

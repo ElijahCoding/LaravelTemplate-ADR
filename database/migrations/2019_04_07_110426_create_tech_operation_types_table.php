@@ -15,6 +15,8 @@ class CreateTechOperationTypesTable extends Migration
     {
         Schema::create('tech_operation_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('en');
+            $table->string('ru');
             $table->timestamps();
         });
     }

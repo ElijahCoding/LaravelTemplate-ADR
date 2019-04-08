@@ -8,5 +8,22 @@ Route::group(['prefix' => 'auth'], function () {
 
 
 Route::group(['middleware' => 'auth:api'], function () {
+    /**
+    * Regions
+    */
     Route::resource('/regions', 'Region\RegionController');
+
+    /**
+    * Tech
+    */
+    Route::group(['prefix' => 'tech', 'namespace' => 'Tech'], function () {
+        /**
+        * Operations
+        */
+        Route::resource('/operations', 'Operation\TechOperationController');
+
+        /**
+        * Cards
+        */
+    });
 });
