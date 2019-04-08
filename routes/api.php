@@ -6,6 +6,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('me', 'Auth\MeController@action');
 });
 
+
 Route::group(['middleware' => 'auth:api'], function () {
-    
+    Route::resource('/regions', 'Region\RegionController');
 });
