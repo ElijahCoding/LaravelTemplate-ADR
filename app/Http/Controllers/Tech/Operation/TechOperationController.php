@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tech\Type\TechOperationType;
 use App\Models\Tech\Operation\TechOperation;
+use App\Http\Resources\Tech\Type\TechOperationTypeResource;
 
 class TechOperationController extends Controller
 {
     public function index()
     {
-        
-        // return TechOperationType::with('operations')->get();
+        return TechOperationTypeResource::collection(TechOperationType::with('tech_operations')->get());
     }
 
     public function store(Request $request)

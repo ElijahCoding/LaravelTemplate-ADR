@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Tech\Type;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Tech\Operation\TechOperationResource;
 
 class TechOperationTypeResource extends JsonResource
 {
@@ -10,7 +11,8 @@ class TechOperationTypeResource extends JsonResource
     {
         return [
             'en' => $this->en,
-            'ru' => $this->ru
+            'ru' => $this->ru,
+            'tech_operations' => TechOperationResource::collection($this->whenLoaded('tech_operations'))
         ];
     }
 }
