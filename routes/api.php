@@ -18,12 +18,15 @@ Route::group(['middleware' => 'auth:api'], function () {
     */
     Route::group(['prefix' => 'tech', 'namespace' => 'Tech'], function () {
         /**
+        * Types
+        */
+        Route::get('/operation/types', 'Type\TechOperationTypeController@index');
+
+        /**
         * Operations
         */
         Route::resource('/operations', 'Operation\TechOperationController');
 
-        /**
-        * Cards
-        */
+
     });
 });
