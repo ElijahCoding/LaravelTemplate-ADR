@@ -10,10 +10,8 @@ class TechOperationTest extends TestCase
 {
     public function test_an_operation_belongs_to_a_type()
     {
-        $operation = create(TechOperation::class, [
-            'type_id' => $type = create(TechOperationType::class)->id
-        ]);
+        $operation = create(TechOperation::class);
 
-        $this->assertInstanceOf(TechOperationType::class, $operation->type->first());
+        $this->assertInstanceOf(TechOperationType::class, $operation->tech_operation_type->first());
     }
 }

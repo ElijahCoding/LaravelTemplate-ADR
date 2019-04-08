@@ -15,13 +15,13 @@ class CreateTechOperationsTable extends Migration
     {
         Schema::create('tech_operations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('type_id')->unsigned()->index();
+            $table->integer('tech_operation_type_id')->unsigned()->index();
             $table->text('title');
             $table->boolean('isDeleted')->default(false);
             $table->boolean('isHarvested')->default(false);
             $table->timestamps();
 
-            $table->foreign('type_id')->references('id')->on('tech_operation_types')->onDelete('cascade');
+            $table->foreign('tech_operation_type_id')->references('id')->on('tech_operation_types')->onDelete('cascade');
         });
     }
 

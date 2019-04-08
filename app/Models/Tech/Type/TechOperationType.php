@@ -7,8 +7,8 @@ use App\Models\Tech\Operation\TechOperation;
 
 class TechOperationType extends Model
 {
-    public function operations()
+    public function tech_operations()
     {
-        return $this->hasMany(TechOperation::class, 'id', 'type_id');
+        return $this->hasMany(TechOperation::class);
     }
 }

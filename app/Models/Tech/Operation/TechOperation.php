@@ -9,8 +9,8 @@ class TechOperation extends Model
 {
     protected $guarded = [];
 
-    public function type()
+    public function tech_operation_type()
     {
-        return $this->belongsTo(TechOperationType::class, 'type_id');
+        return $this->belongsTo(TechOperationType::class);
     }
 }

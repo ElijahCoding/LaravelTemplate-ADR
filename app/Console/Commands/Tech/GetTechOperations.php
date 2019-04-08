@@ -24,7 +24,7 @@ class GetTechOperations extends Command
 
         foreach ($response[0]->data as $index => $operation) {
             TechOperation::create([
-                'type_id' => $this->filterType($operation->type),
+                'tech_operation_type_id' => $this->filterType($operation->type),
                 'title' => $operation->title,
                 'isDeleted' => $operation->del,
                 'isHarvested' => $operation->isHarvest

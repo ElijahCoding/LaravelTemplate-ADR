@@ -13,7 +13,7 @@ class TechOperationTypeTest extends TestCase
         $type = create(TechOperationType::class);
 
         $this->assertInstanceOf(
-            'Illuminate\Database\Eloquent\Collection', $type->operations
+            'Illuminate\Database\Eloquent\Collection', $type->tech_operations
         );
     }
 }
