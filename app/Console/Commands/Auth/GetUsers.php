@@ -15,16 +15,18 @@ class GetUsers extends Command
     {
         $file_path = public_path() . '/files/users.json';
 
-        $response = array_slice(json_decode(file_get_contents($file_path)), 2);
+        $response = array_slice(
+            json_decode(file_get_contents($file_path)), 2
+        );
 
-        foreach ($response[0]->data as $user) {
+
+        foreach ($response[0]->data as $index => $user) {
             User::create([
                 'name' => $user->name,
                 'email' => $user->email,
-                'password' => $user->passwordHash,
                 'phone' => $user->phone,
-                'position' => $user->position,
-                'isDeleted' => $user->del
+                'password' => $user->passwordHash,
+                'position' => $user->position
             ]);
         }
     }
