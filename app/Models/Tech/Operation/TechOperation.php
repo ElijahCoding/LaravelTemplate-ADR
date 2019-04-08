@@ -3,7 +3,7 @@
 namespace App\Models\Tech\Operation;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tech\Operation\TechOperationType;
+use App\Models\Tech\Type\TechOperationType;
 
 class TechOperation extends Model
 {
@@ -11,6 +11,6 @@ class TechOperation extends Model
 
     public function type()
     {
-        return $this->belongsTo(TechOperationType::class);
+        return $this->belongsTo(TechOperationType::class, 'type_id');
     }
 }
