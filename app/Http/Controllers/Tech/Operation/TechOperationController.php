@@ -31,6 +31,13 @@ class TechOperationController extends Controller
         return new TechOperationResource($operation);
     }
 
+    public function update(TechOperation $operation, TechOperationStoreRequest $request)
+    {
+        $operation->update($request->all());
+
+        return new TechOperationResource($operation);
+    }
+
     public function destroy(TechOperation $operation)
     {
         if (TechOperation::findOrFail($operation->id)) {
