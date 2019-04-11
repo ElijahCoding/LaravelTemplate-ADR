@@ -19,9 +19,9 @@ class TechOperationController extends Controller
 
     public function store(TechOperationStoreRequest $request)
     {
-        $operation = TechOperation::create($request->all());
-
-        return new TechOperationResource($operation);
+        return new TechOperationResource(
+            TechOperation::create($request->all())
+        );
     }
 
     public function show(TechOperation $operation)
@@ -31,13 +31,14 @@ class TechOperationController extends Controller
         return new TechOperationResource($operation);
     }
 
-    public function update(Request $request, $id)
+    public function destroy(TechOperation $operation)
     {
-        //
-    }
+        if (TechOperation::findOrFail($operation->id)) {
+            $operation->delete();
 
-    public function destroy($id)
-    {
-        //
+            return response()->json([
+                'message' => 'Deleted'
+            ], 200);
+        }
     }
 }
