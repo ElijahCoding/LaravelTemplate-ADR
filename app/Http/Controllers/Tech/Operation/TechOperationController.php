@@ -19,7 +19,9 @@ class TechOperationController extends Controller
 
     public function store(TechOperationStoreRequest $request)
     {
-        TechOperation::create($request->all());
+        $operation = TechOperation::create($request->all());
+
+        return new TechOperationResource($operation);
     }
 
     public function show(TechOperation $operation)
