@@ -13,7 +13,7 @@ class TechOperationResource extends JsonResource
             'title' => $this->title,
             'is_deleted' => $this->isDeleted,
             'is_harvested' => $this->isHarvested,
-            'tech_operation_type' => TechOperationTypeResource::collection($this->whenLoaded('tech_operation_type'))
+            'tech_operation_type' => new TechOperationTypeResource($this->whenLoaded('tech_operation_type'))
         ];
     }
 }

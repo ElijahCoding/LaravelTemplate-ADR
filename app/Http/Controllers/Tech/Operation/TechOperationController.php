@@ -22,11 +22,11 @@ class TechOperationController extends Controller
         TechOperation::create($request->all());
     }
 
-    public function show(TechOperation $tech_operation)
+    public function show(TechOperation $operation)
     {
-        $tech_operation->load('tech_operation_type');
+        $operation->load('tech_operation_type');
 
-        return new TechOperationResource($tech_operation);
+        return new TechOperationResource($operation);
     }
 
     public function update(Request $request, $id)
