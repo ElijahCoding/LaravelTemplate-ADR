@@ -15,6 +15,6 @@ class TechOperationType extends Model
 
     public function tech_operation_params()
     {
-        return $this->hasMany(TechOperationParam::class);
+        return $this->belongsToMany(TechOperationParam::class, 'tech_operation_param_type');
     }
 }

@@ -11,8 +11,8 @@ class TechOperationParam extends Model
 
     public $timestamps = false;
 
-    public function tech_operation_type()
+    public function tech_operation_types()
     {
-        return $this->belongsTo(TechOperationType::class);
+        return $this->belongsToMany(TechOperationType::class, 'tech_operation_param_type');
     }
 }

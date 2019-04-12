@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Console\Commands\Tech\Params;
+
+use Illuminate\Console\Command;
+use App\Models\Tech\Operation\Params\TechOperationParam;
+
+class GetTechOperationParams extends Command
+{
+    protected $signature = 'get:tech-operation-params';
+
+    protected $description = 'Get all technical operations params';
+
+    public function handle()
+    {
+        $file_path = public_path() . '/files/techOperationsParams.json';
+
+        $response = array_slice(
+            json_decode(file_get_contents($file_path)), 2
+        );
+
+        $bar = $this->output->createProgressBar(count($response[0]->data));
+        $bar->start();
+
+        foreach ($response[0]->data as $index => $param) {
+            TechOperationParam::create([
+                'title' => $param->title,
+                'slug' => $param->alias,
+                'unit' => $param->units
+            ]);
+
+            $bar->advance();
+        }
+
+        $bar->finish();
+        $this->output->write("\n");
+    }
+}
