@@ -14,7 +14,6 @@ class CreateTechOperationParamTypeTable extends Migration
     public function up()
     {
         Schema::create('tech_operation_param_type', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->integer('tech_operation_type_id')->unsigned()->index();
             $table->integer('tech_operation_param_id')->unsigned()->index();
 

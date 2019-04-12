@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Tech\Params;
 
 use Illuminate\Console\Command;
+use App\Models\Tech\Type\TechOperationType;
 use App\Models\Tech\Operation\Params\TechOperationParam;
 
 class GetTechOperationParams extends Command
@@ -13,7 +14,7 @@ class GetTechOperationParams extends Command
 
     public function handle()
     {
-        // $this->importParams();
+        $this->importParams();
         $this->attachParamType();
     }
 
@@ -25,21 +26,13 @@ class GetTechOperationParams extends Command
             json_decode(file_get_contents($file_path)), 2
         );
 
-        $bar = $this->output->createProgressBar(count($response[0]->data));
-        $bar->start();
-
         foreach ($response[0]->data as $index => $param) {
             TechOperationParam::create([
                 'title' => $param->title,
                 'slug' => $param->alias,
                 'unit' => $param->units
             ]);
-
-            $bar->advance();
         }
-
-        $bar->finish();
-        $this->output->write("\n");
     }
 
     protected function attachParamType()
@@ -50,18 +43,10 @@ class GetTechOperationParams extends Command
             json_decode(file_get_contents($file_path)), 2
         );
 
-        $bar = $this->output->createProgressBar(count($response[0]->data));
-        $bar->start();
-
-        foreach ($response[0]->data as $index => $type) {
-            // dump($type);
-            // TechOperationParam::create([
-            //     'title' => $param->title,
-            //     'slug' => $param->alias,
-            //     'unit' => $param->units
-            // ]);
-
-            $bar->advance();
+        foreach ($response[0]->data as $index => $param_type) {
+            $this->filterType($param_type->type)->tech_operation_params()->attach(
+                TechOperationParam::where('id', $param_type->techOperationsParams_id)->first()
+            );
         }
     }
 
@@ -69,19 +54,19 @@ class GetTechOperationParams extends Command
     {
         switch ($name) {
             case 'field':
-                return 1;
+                return TechOperationType::where('en', 'field')->first();
                 break;
 
             case 'transafer':
-                return 2;
+                return TechOperationType::where('en', 'transafer')->first();
                 break;
 
             case 'time':
-                return 3;
+                return TechOperationType::where('en', 'time')->first();
                 break;
 
             default:
-                return 1;
+                return TechOperationType::where('en', 'field')->first();
         }
     }
 }
