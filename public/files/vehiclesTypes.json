@@ -1,0 +1,20 @@
+[
+{"type":"header","version":"4.8.5","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"agriculturus"},
+{"type":"table","name":"vehiclesTypes","database":"agriculturus","data":
+[
+{"id":"1","external_id":"f6ff6bf0-7cd6-11e7-8100-5ef3fc53258b","farmsIntegrators_id":"4","type":"НТ (мобильные терминалы)"},
+{"id":"2","external_id":"f8724560-e8ff-4375-93cc-a6894eb51d72","farmsIntegrators_id":"4","type":"Легковой (Ф-№3)"},
+{"id":"3","external_id":"e9aa1820-7284-4cf2-9f0e-acc70e9c9098","farmsIntegrators_id":"4","type":"Грузовой повременный (Ф-№4П)"},
+{"id":"4","external_id":"fca75380-7d21-41c2-a777-e66f04d3892b","farmsIntegrators_id":"4","type":"Грузовой сдельный (Ф-№4С)"},
+{"id":"5","external_id":"1b61f86c-cd51-11e4-80bb-1458d05a5a1b","farmsIntegrators_id":"4","type":"Трактор колесный"},
+{"id":"6","external_id":"1b61f87e-cd51-11e4-80bb-1458d05a5a1b","farmsIntegrators_id":"4","type":"Комбайн"},
+{"id":"7","external_id":"f8724560-e8ff-4375-93cc-a6894eb51d72","farmsIntegrators_id":"5","type":"Легковой (Ф-№3)"},
+{"id":"8","external_id":"fca75380-7d21-41c2-a777-e66f04d3892b","farmsIntegrators_id":"5","type":"Грузовой сидельный (Ф-№4С)"},
+{"id":"9","external_id":"d6ee2a91-3ec7-4b6a-9eae-b5d5a270d72a","farmsIntegrators_id":"5","type":"Грузовой междугородний (Ф-№4М)"},
+{"id":"10","external_id":"6c50b78e-a614-11e8-80cc-00155db6ab07","farmsIntegrators_id":"5","type":"Дополнительное оборудование"},
+{"id":"11","external_id":"e9aa1820-7284-4cf2-9f0e-acc70e9c9098","farmsIntegrators_id":"5","type":"Грузовой повременный (Ф-№4П)"},
+{"id":"12","external_id":"4410ca6d-377c-4cd1-8eb1-5fb6a45d7125","farmsIntegrators_id":"5","type":"Легковой спец (Ф-№3Спец)"}
+]
+}
+]

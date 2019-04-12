@@ -1,0 +1,13 @@
+[
+{"type":"header","version":"4.8.5","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"agriculturus"},
+{"type":"table","name":"vehiclesCategories","database":"agriculturus","data":
+[
+{"id":"1","external_id":"1b61f854-cd51-11e4-80bb-1458d05a5a1b","farmsIntegrators_id":"4","category":"Автотранспорт"},
+{"id":"2","external_id":"1b61f855-cd51-11e4-80bb-1458d05a5a1b","farmsIntegrators_id":"4","category":"Сельхозтехника"},
+{"id":"3","external_id":"f02ece03-695c-11e8-80c6-00155db6ab07","farmsIntegrators_id":"5","category":"Автотранспорт"},
+{"id":"4","external_id":"f9ef0bda-695c-11e8-80c6-00155db6ab07","farmsIntegrators_id":"5","category":"Сельхозтехника"},
+{"id":"5","external_id":"8bda8499-a60a-11e8-80cc-00155db6ab07","farmsIntegrators_id":"5","category":"Аренда"}
+]
+}
+]
