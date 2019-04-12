@@ -3,7 +3,7 @@
 namespace App\Models\Tech\Operation\Params;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tech\Operation\Type\TechOperationType;
+use App\Models\Tech\Type\TechOperationType;
 
 class TechOperationParam extends Model
 {
