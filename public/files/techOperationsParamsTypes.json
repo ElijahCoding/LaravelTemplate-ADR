@@ -1,0 +1,19 @@
+[
+{"type":"header","version":"4.7.9","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"agriculturus"},
+{"type":"table","name":"techOperationsParamsTypes","database":"agriculturus","data":
+[
+{"techOperationsParams_id":"1","type":"field"},
+{"techOperationsParams_id":"2","type":"field"},
+{"techOperationsParams_id":"3","type":"field"},
+{"techOperationsParams_id":"3","type":"transfer"},
+{"techOperationsParams_id":"4","type":"field"},
+{"techOperationsParams_id":"6","type":"transfer"},
+{"techOperationsParams_id":"6","type":"time"},
+{"techOperationsParams_id":"7","type":"transfer"},
+{"techOperationsParams_id":"8","type":"transfer"},
+{"techOperationsParams_id":"9","type":"transfer"},
+{"techOperationsParams_id":"10","type":"time"}
+]
+}
+]

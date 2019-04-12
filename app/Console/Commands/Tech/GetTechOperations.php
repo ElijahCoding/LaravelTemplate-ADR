@@ -19,9 +19,6 @@ class GetTechOperations extends Command
             json_decode(file_get_contents($file_path)), 2
         );
 
-        $bar = $this->output->createProgressBar(count($response[0]->data));
-        $bar->start();
-
         foreach ($response[0]->data as $index => $operation) {
             TechOperation::create([
                 'tech_operation_type_id' => $this->filterType($operation->type),
@@ -29,12 +26,7 @@ class GetTechOperations extends Command
                 'isDeleted' => $operation->del,
                 'isHarvested' => $operation->isHarvest
             ]);
-
-            $bar->advance();
         }
-
-        $bar->finish();
-        $this->output->write("\n");
     }
 
     protected function filterType($name)
