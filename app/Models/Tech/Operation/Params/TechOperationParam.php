@@ -3,7 +3,7 @@
 namespace App\Models\Tech\Operation\Params;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tech\Operation\Params\TechOperationParamType;
+use App\Models\Tech\Operation\Type\TechOperationType;
 
 class TechOperationParam extends Model
 {
@@ -11,8 +11,8 @@ class TechOperationParam extends Model
 
     public $timestamps = false;
 
-    public function tech_operation_param_type()
+    public function tech_operation_type()
     {
-        return $this->belongsTo(TechOperationParamType::class);
+        return $this->belongsTo(TechOperationType::class);
     }
 }
