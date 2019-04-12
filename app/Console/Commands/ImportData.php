@@ -17,5 +17,9 @@ class ImportData extends Command
         Artisan::call('db:seed');
         Artisan::call('get:tech-operations');
         Artisan::call('get:tech-operation-params');
+
+        Artisan::call('get:vehicles');
+        Artisan::call('get:vehicle-categories');
+        Artisan::call('get:vehicle-types');
     }
 }
