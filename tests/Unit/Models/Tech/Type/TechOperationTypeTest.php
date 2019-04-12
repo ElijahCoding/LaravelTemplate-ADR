@@ -16,4 +16,9 @@ class TechOperationTypeTest extends TestCase
             'Illuminate\Database\Eloquent\Collection', $type->tech_operations
         );
     }
+
+    public function test_it_belongs_to_many_tech_operation_params()
+    {
+        $type = create(TechOperationType::class);
+    }
 }
