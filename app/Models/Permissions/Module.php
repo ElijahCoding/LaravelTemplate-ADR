@@ -13,5 +13,8 @@ class Module extends Model
         return $this->belongsToMany(Domain::class, 'domain_module');
     }
 
-    
+    public function permissions()
+    {
+        return $this->hasMany(Permission::class);
+    }
 }
