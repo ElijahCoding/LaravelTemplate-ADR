@@ -2,15 +2,16 @@
 
 namespace App\Models\Permissions;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Module extends Model
 {
     protected $fillable = ['name'];
 
-    public function users()
+    public function domains()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(Domain::class, 'domain_module');
     }
+
+    
 }

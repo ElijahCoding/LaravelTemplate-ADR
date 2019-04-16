@@ -6,7 +6,9 @@ use App\User;
 use Tests\TestCase;
 use App\Models\Region;
 use App\Models\Profile;
-use App\Models\Permissions\{Permission, Role};
+use App\Models\Permissions\{
+    Permission, Role, Domain
+};
 
 class UserTest extends TestCase
 {
@@ -55,17 +57,24 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_it_belongs_to_many_roles()
+    public function test_it_belongs_to_a_role()
     {
         $user = create(User::class);
 
-        $user->roles()->attach(
-            $role = create(Role::class)
+        $this->assertInstanceOf(Role::class, $user->role->first());
+    }
+
+    public function test_it_belongs_to_many_domains()
+    {
+        $user = create(User::class);
+
+        $user->domains()->attach(
+            $domain = create(Domain::class)
         );
 
-        $this->assertDatabaseHas('user_role', [
+        $this->assertDatabaseHas('user_domain', [
             'user_id' => $user->id,
-            'role_id' => $role->id
+            'domain_id' => $domain->id
         ]);
     }
 }
