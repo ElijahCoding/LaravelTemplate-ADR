@@ -29,7 +29,7 @@ class UserTest extends TestCase
         $this->assertInstanceOf(Region::class, $user->regions->first());
     }
 
-    public function test_a_user_has_a_profile()
+    public function test_it_has_a_profile()
     {
         $user = create(User::class);
 
@@ -38,5 +38,10 @@ class UserTest extends TestCase
         ]);
 
         $this->assertInstanceOf(Profile::class, $user->profile);
+    }
+
+    public function test_it_belongs_to_many_permission()
+    {
+        
     }
 }
