@@ -61,4 +61,9 @@ class UserTest extends TestCase
 
         $this->assertInstanceOf(Role::class, $user->role->first());
     }
+
+    public function test_it_belongs_to_many_domains()
+    {
+        
+    }
 }
