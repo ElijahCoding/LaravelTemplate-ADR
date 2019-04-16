@@ -14,8 +14,8 @@ class Domain extends Model
         return $this->belongsToMany(User::class, 'user_domain');
     }
 
-    // public function modules()
-    // {
-    //     return $this->belongsToMany(Module::class, 'domain_module');
-    // }
+    public function modules()
+    {
+        return $this->belongsToMany(Module::class, 'domain_module');
+    }
 }
