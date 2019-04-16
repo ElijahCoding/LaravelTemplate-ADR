@@ -17,6 +17,8 @@ class CreatePermissionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('module_id')->unsigned()->index();
             $table->string('name');
+            $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('module_id')->references('id')->on('modules');
         });
