@@ -6,6 +6,7 @@ use App\User;
 use Tests\TestCase;
 use App\Models\Region;
 use App\Models\Profile;
+use App\Models\Permissions\{Permission, Role};
 
 class UserTest extends TestCase
 {
@@ -40,8 +41,31 @@ class UserTest extends TestCase
         $this->assertInstanceOf(Profile::class, $user->profile);
     }
 
-    public function test_it_belongs_to_many_permission()
+    public function test_it_belongs_to_many_permissions()
     {
-        
+        $user = create(User::class);
+
+        $user->permissions()->attach(
+            $permission = create(Permission::class)
+        );
+
+        $this->assertDatabaseHas('user_permission', [
+            'user_id' => $user->id,
+            'permission_id' => $permission->id
+        ]);
+    }
+
+    public function test_it_belongs_to_many_roles()
+    {
+        $user = create(User::class);
+
+        $user->roles()->attach(
+            $role = create(Role::class)
+        );
+
+        $this->assertDatabaseHas('user_role', [
+            'user_id' => $user->id,
+            'role_id' => $role->id
+        ]);
     }
 }
