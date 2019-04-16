@@ -7,8 +7,10 @@ use App\Models\Profile;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Permissions\{Role, Permission};
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Permissions\{
+    Role, Permission, Domain
+};
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -21,6 +23,11 @@ class User extends Authenticatable implements JWTSubject
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function domains()
+    {
+        return $this->belongsToMany(Domain::class, 'user_domain');
+    }
 
     public function role()
     {
