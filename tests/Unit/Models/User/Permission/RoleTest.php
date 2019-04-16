@@ -8,17 +8,14 @@ use App\Models\Permissions\Role;
 
 class RoleTest extends TestCase
 {
-    public function test_it_belongs_to_many_users()
+    public function test_it_has_many_users()
     {
         $role = create(Role::class);
 
-        $role->users()->attach(
-            $user = create(User::class)
-        );
-
-        $this->assertDatabaseHas('user_role', [
-            'user_id' => $user->id,
+        $user = create(User::class, [
             'role_id' => $role->id
         ]);
+
+        $this->assertTrue($role->users->contains($user));
     }
 }

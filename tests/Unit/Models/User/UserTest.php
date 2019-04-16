@@ -55,17 +55,10 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_it_belongs_to_many_roles()
+    public function test_it_belongs_to_a_role()
     {
         $user = create(User::class);
 
-        $user->roles()->attach(
-            $role = create(Role::class)
-        );
-
-        $this->assertDatabaseHas('user_role', [
-            'user_id' => $user->id,
-            'role_id' => $role->id
-        ]);
+        $this->assertInstanceOf(Role::class, $user->role->first());
     }
 }
