@@ -1,9 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Models\Region;
-use App\Models\Profile;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -37,16 +35,6 @@ class User extends Authenticatable implements JWTSubject
     public function permissions()
     {
         return $this->belongsToMany(Permission::class, 'user_permission');
-    }
-
-    public function regions()
-    {
-        return $this->belongsToMany(Region::class, 'user_region');
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
     }
 
     public function getJWTIdentifier()

@@ -2,13 +2,13 @@
 
 namespace App\Models\Permissions;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Permission extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = ['name'];
 
     public function module()
