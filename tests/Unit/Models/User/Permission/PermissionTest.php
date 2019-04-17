@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models\User\Permission;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 use App\Models\Permissions\{Permission, Module};
 

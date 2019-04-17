@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 
 class LoginTest extends TestCase

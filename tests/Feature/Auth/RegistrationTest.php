@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -30,7 +30,7 @@ class RegistrationTest extends TestCase
     public function test_it_requires_a_unique_email()
     {
         $user = factory(User::class)->create();
-        
+
         $this->json('POST', 'api/auth/register', [
             'email' => $user->email
         ])
