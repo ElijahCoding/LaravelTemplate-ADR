@@ -31,6 +31,42 @@ class ModuleServiceProvider extends ServiceProvider
     }
 
     /**
+     * Load modules routes
+     *
+     * @param string $module
+     */
+    private function routes(string $module)
+    {
+
+        $folder = $this->getFolder($module, $this->routes_folder);
+        if (is_dir($folder)) {
+            foreach (File::allFiles($folder) as $route) {
+                $this->loadRoutesFrom($route->getPathname());
+            }
+        }
+    }
+
+    /**
+     * Load all module's migrations from folder
+     *
+     * @param $module
+     */
+    private function migrations(string $module)
+    {
+
+        $folders = [];
+
+        $folder = $this->getFolder($module, $this->migrations_folder);
+        $subs = glob($folder . '/*', GLOB_ONLYDIR);
+
+        if (is_dir($folder)) $folders[] = $folder;
+        if (is_array($subs)) $folders = array_merge($folders, $subs);
+
+        $this->loadMigrationsFrom($folders);
+
+    }
+
+    /**
      * Get passed folder path for module
      *
      * @param string $folder
