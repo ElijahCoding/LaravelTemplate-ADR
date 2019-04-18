@@ -13,31 +13,20 @@ class ModuleServiceProvider extends ServiceProvider
 
     private $migration_folder;
 
-    /**
-    * Bootstrap the application services.
-    *
-    * @return void
-    */
     public function register()
     {
         $this->module_folder = config("modules.root", 'Modules');
         $this->route_folder = config('modules.folders.Routes', 'Routes');
         $this->migration_folder = config('folders.Migrations', 'Migrations');
 
-        foreach (config('modules.active', []) as $k => $module) {
+        foreach (config('modules.active', []) as $key => $module) {
             $this->routes($module);
             $this->migrations($module);
         }
     }
 
-    /**
-     * Load modules routes
-     *
-     * @param string $module
-     */
     private function routes(string $module)
     {
-
         $folder = $this->getFolder($module, $this->route_folder);
         if (is_dir($folder)) {
             foreach (File::allFiles($folder) as $route) {
@@ -46,14 +35,8 @@ class ModuleServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * Load all module's migrations from folder
-     *
-     * @param $module
-     */
-    private function migrations(string $module)
+    protected function migrations(string $module)
     {
-
         $folders = [];
 
         $folder = $this->getFolder($module, $this->migration_folder);
@@ -66,13 +49,6 @@ class ModuleServiceProvider extends ServiceProvider
 
     }
 
-    /**
-     * Get passed folder path for module
-     *
-     * @param string $folder
-     * @param string $module
-     * @return string
-     */
     private function getFolder(string $module, string $folder): string
     {
         return app_path(implode(DIRECTORY_SEPARATOR, [$this->module_folder, $module, $folder]));

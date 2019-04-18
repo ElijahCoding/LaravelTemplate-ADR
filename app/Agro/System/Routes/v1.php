@@ -1,5 +1,5 @@
 <?php
 
-Route::group(['namespace' => 'App\Agro\System\Controllers\V1'], function () {
+Route::group(['namespace' => 'App\Agro\System\Http\Controllers'], function () {
     Route::get('/', 'TestController@index');
 });

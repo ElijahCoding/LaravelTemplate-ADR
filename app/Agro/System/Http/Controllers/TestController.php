@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Agro\System\Controllers\V1;
+namespace App\Agro\System\Http\Controllers;
 
+use App\Agro\System\Models\User;
 use App\Common\Controllers\Controller;
 
 class TestController extends Controller
 {
     public function index()
     {
-        return 'test';
+        dd(User::get());
     }
 }
